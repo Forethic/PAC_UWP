@@ -1,0 +1,34 @@
+﻿<Application
+    x:Class="CharacterMap.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cvt="using:CharacterMap.Helpers.Converters"
+    xmlns:local="using:CharacterMap">
+
+    <Application.Resources>
+        <vm:ViewModelLocator x:Key="Locator" xmlns:vm="using:CharacterMap.ViewModel" />
+        <cvt:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <cvt:StringFormatConverter x:Key="StringFormatConverter"/>
+
+        <Style TargetType="Grid" x:Name="TransitionalGrid">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <TransitionCollection>
+                        <ContentThemeTransition HorizontalOffset="50" VerticalOffset="0" />
+                    </TransitionCollection>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="GridView">
+            <Setter Property="ItemContainerTransitions">
+                <Setter.Value>
+                    <TransitionCollection>
+                        <EntranceThemeTransition IsStaggeringEnabled="False" FromHorizontalOffset="50" FromVerticalOffset="0" />
+                    </TransitionCollection>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>
