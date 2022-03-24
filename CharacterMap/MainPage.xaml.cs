@@ -70,7 +70,7 @@ namespace CharacterMap
             if (CharGrid?.SelectedItem is Character ch)
             {
                 TxtSelected.Text += ch.Char ?? string.Empty;
-                TxtXamlCode.Text = $"&#x{ch.UnicodeIndex.ToString("x").ToUpper()}";
+                TxtXamlCode.Text = $"&#x{ch.UnicodeIndex.ToString("x").ToUpper()};";
                 if (CmbFontFamily.SelectedItem is InstalledFont installedFont)
                 {
                     TxtFontIcon.Text = $@"<FontIcon FontFamily=""{installedFont.Name}"" Glyph=""&#x{ch.UnicodeIndex.ToString("x").ToUpper()};""/>";
