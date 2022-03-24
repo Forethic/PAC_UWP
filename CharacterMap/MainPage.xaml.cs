@@ -11,6 +11,7 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Provider;
 using Windows.Storage.Streams;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -62,6 +63,21 @@ namespace CharacterMap
             if (ToggleTheme != null)
             {
                 RequestedTheme = ToggleTheme.IsOn ? ElementTheme.Dark : ElementTheme.Light;
+
+                if (ToggleTheme.IsOn)
+                {
+                    UI.ApplyColorToTitleBar(Color.FromArgb(255, 43, 43, 43), Colors.White, Colors.DimGray, Colors.White);
+                    UI.ApplyColorToTitleButton(Color.FromArgb(255, 43, 43, 43), Colors.White, Colors.DimGray, Colors.White, Colors.DimGray, Colors.White, Colors.DimGray, Colors.White);
+                }
+                else
+                {
+
+                    UI.ApplyColorToTitleBar(Color.FromArgb(255, 0, 114, 188), Colors.White, Colors.LightGray, Colors.White);
+                    UI.ApplyColorToTitleButton(Color.FromArgb(255, 0, 114, 188), Colors.White,
+                                               Color.FromArgb(255, 51, 148, 208), Colors.White,
+                                               Color.FromArgb(255, 0, 114, 188), Colors.White,
+                                               Colors.LightGray, Colors.White);
+                }
             }
         }
 
