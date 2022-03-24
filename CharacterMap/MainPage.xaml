@@ -43,9 +43,7 @@
                         Margin="10 0 0 0" VerticalAlignment="Bottom" MinWidth="170" SearchHistoryEnabled="True"/>
 
             <ToggleSwitch x:Name="ToggleTheme" VerticalAlignment="Bottom"
-                          Margin="20 0 0 0" 
-                          OffContent="Light Theme" OnContent="Dark Theme" 
-                          Toggled="ToggleTheme_Toggled"/>
+                          Margin="20 0 0 0" Toggled="ToggleTheme_Toggled"/>
         </StackPanel>
 
         <Grid Grid.Row="1" Margin="0 10">
@@ -123,19 +121,36 @@
                     BorderThickness="{ThemeResource TextControlBorderThemeThickness}">
                 <TextBlock x:Name="TxtSelected" FontFamily="{Binding ElementName=CmbFontFamily,Path=SelectedValue}" FontSize="28" />
             </Border>
-            <Button x:Uid="BtnCopy" Grid.Column="1" VerticalAlignment="Top"
-                    Height="55" Padding="20 0" Margin="20 0 0 0"
-                    Click="BtnCopy_Click" />
+            <Button Grid.Column="1" VerticalAlignment="Top" x:Uid="BtnCopy"
+                    Height="55" Padding="20 0" Margin="10 0 0 0"
+                    Click="BtnCopy_Click">
+                <Button.Content>
+                    <SymbolIcon Symbol="Copy"/>
+                </Button.Content>
+            </Button>
         </Grid>
 
         <Grid Grid.Row="3" Margin="0 5 0 0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="26"/>
+                <ColumnDefinition Width="14"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox Grid.Column="0" Margin="0 0 5 0 " x:Name="TxtXamlCode" x:Uid="TxtXamlCode" GotFocus="TxtXamlCode_GotFocus" />
-            <TextBox Grid.Column="1" Margin="5 0 0 0 " x:Name="TxtFontIcon" x:Uid="TxtFontIcon" GotFocus="TxtFontIcon_GotFocus" />
+            <TextBox Grid.Column="0" Margin="0,0,5,0" x:Name="TxtXamlCode" x:Uid="TxtXamlCode" GotFocus="TxtXamlCode_GotFocus" IsReadOnly="True"/>
+            <Button Grid.Column="1" x:Name="BtnCopyXamlCode" Click="BtnCopyXamlCode_Click" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,23,0,0">
+                <Button.Content>
+                    <SymbolIcon Symbol="Copy" />
+                </Button.Content>
+            </Button>
+            <TextBox Grid.Column="2" Margin="5,0,5,0" x:Name="TxtFontIcon" x:Uid="TxtFontIcon" GotFocus="TxtFontIcon_GotFocus" IsReadOnly="True"/>
+            <Button Grid.Column="3" x:Name="BtnCopyFontIcon" Click="BtnCopyFontIcon_Click" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+                <Button.Content>
+                    <SymbolIcon Symbol="Copy" />
+                </Button.Content>
+            </Button>
         </Grid>
     </Grid>
 </Page>

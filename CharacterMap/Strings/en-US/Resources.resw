@@ -120,9 +120,6 @@
   <data name="AppName" xml:space="preserve">
     <value>Character Map</value>
   </data>
-  <data name="BtnCopy.Content" xml:space="preserve">
-    <value>Copy</value>
-  </data>
   <data name="BtnSavePng.Content" xml:space="preserve">
     <value>Save PNG(900x900)</value>
   </data>
@@ -134,9 +131,6 @@
   </data>
   <data name="LnkVisitBlog.Content" xml:space="preserve">
     <value>Visit Author's Blog</value>
-  </data>
-  <data name="TxtAboutHeader.Text" xml:space="preserve">
-    <value>Character Map (Universal Windows)</value>
   </data>
   <data name="TxtAboutText.Text" xml:space="preserve">
     <value>This App is designed to replace Windows system win32 character map. It is  more DPI aware on high DPI Screens.</value>

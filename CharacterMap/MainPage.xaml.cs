@@ -158,5 +158,15 @@ namespace CharacterMap
         {
             Frame.Navigate(typeof(AboutPage));
         }
+
+        private void BtnCopyXamlCode_Click(object sender, RoutedEventArgs e)
+        {
+            Utils.CopyToClipBoard(TxtXamlCode.Text.Trim());
+        }
+
+        private void BtnCopyFontIcon_Click(object sender, RoutedEventArgs e)
+        {
+            Utils.CopyToClipBoard(TxtFontIcon.Text.Trim());
+        }
     }
 }

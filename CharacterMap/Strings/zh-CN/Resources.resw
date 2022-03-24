@@ -120,9 +120,6 @@
   <data name="AppName" xml:space="preserve">
     <value> 字符映射表</value>
   </data>
-  <data name="BtnCopy.Content" xml:space="preserve">
-    <value>复制</value>
-  </data>
   <data name="BtnSavePng.Content" xml:space="preserve">
     <value>保存PNG(900x900)</value>
   </data>
@@ -134,9 +131,6 @@
   </data>
   <data name="LnkVisitBlog.Content" xml:space="preserve">
     <value>访问作者博客</value>
-  </data>
-  <data name="TxtAboutHeader.Text" xml:space="preserve">
-    <value>字符映射表（Windows通用版）</value>
   </data>
   <data name="TxtAboutText.Text" xml:space="preserve">
     <value>本应用可替换Windows系统自带的WIN32字符映射表。适配高DPI屏幕的设备。</value>
