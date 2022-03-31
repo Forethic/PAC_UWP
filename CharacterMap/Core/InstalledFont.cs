@@ -9,6 +9,7 @@ namespace CharacterMap.Core
         public string Name { get; set; }
         public int FamilyIndex { get; set; }
         public int Index { get; set; }
+        public bool IsSymbolFont { get; set; }
 
         public static List<InstalledFont> GetFonts()
         {
@@ -32,12 +33,14 @@ namespace CharacterMap.Core
                     }
                 }
 
+                bool isSymbolFont = fontFamily.GetFont(index).IsSymbolFont;
                 string name = familyNames.GetString(index);
                 fontList.Add(new InstalledFont
                 {
                     Name = name,
                     FamilyIndex = i,
                     Index = index,
+                    IsSymbolFont = isSymbolFont,
                 });
             }
 

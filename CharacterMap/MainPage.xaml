@@ -26,7 +26,7 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <ComboBox x:Name="CmbFontFamily" x:Uid="CmbFontFamily" Width="300"
-                      ItemsSource="{Binding FontList}"
+                      ItemsSource="{Binding FontList}" VerticalAlignment="Bottom"
                       SelectedItem="{Binding SelectedFont, Mode=TwoWay}"
                       SelectedValuePath="Name">
                 <ComboBox.ItemTemplate>
@@ -40,11 +40,18 @@
                         PlaceholderText="Unicode"
                         BorderBrush="{ThemeResource SystemControlForegroundChromeDisabledLowBrush}"
                         QuerySubmitted="SearchBoxUnicode_QuerySubmitted"
-                        Margin="10 0 0 0" VerticalAlignment="Bottom" MinWidth="170" SearchHistoryEnabled="True"/>
+                        Margin="10 0 10 0" VerticalAlignment="Bottom" MinWidth="170" SearchHistoryEnabled="True"/>
 
-            <ToggleSwitch x:Name="ToggleTheme" VerticalAlignment="Bottom"
-                          Margin="20 0 0 0" Toggled="ToggleTheme_Toggled"/>
+            <ToggleSwitch x:Name="ToggleSymbolFontsOnly"
+                          x:Uid="ToggleSymbolFontsOnly"
+                          VerticalAlignment="Bottom"
+                          Toggled="ToggleSymbolFontsOnly_Toggled"
+                          IsOn="{Binding ShowSymbolFontsOnly,Mode=TwoWay}"/>
         </StackPanel>
+
+        <ToggleSwitch Grid.Row="0" x:Name="ToggleTheme" x:Uid="ToggleTheme"
+                      VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                      Toggled="ToggleTheme_Toggled"/>
 
         <Grid Grid.Row="1" Margin="0 10">
             <Grid.ColumnDefinitions>

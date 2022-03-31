@@ -126,11 +126,14 @@
   <data name="BtnSelect.Content" xml:space="preserve">
     <value>Select</value>
   </data>
-  <data name="CmbFontFamily.Header" xml:space="preserve">
-    <value>Font Family</value>
-  </data>
   <data name="LnkVisitBlog.Content" xml:space="preserve">
     <value>Visit Author's Blog</value>
+  </data>
+  <data name="ToggleSymbolFontsOnly.OffContent" xml:space="preserve">
+    <value>All Fonts</value>
+  </data>
+  <data name="ToggleSymbolFontsOnly.OnContent" xml:space="preserve">
+    <value>Show Symbol Fonts Only</value>
   </data>
   <data name="TxtAboutText.Text" xml:space="preserve">
     <value>This App is designed to replace Windows system win32 character map. It is  more DPI aware on high DPI Screens.</value>

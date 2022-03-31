@@ -126,11 +126,14 @@
   <data name="BtnSelect.Content" xml:space="preserve">
     <value>选择</value>
   </data>
-  <data name="CmbFontFamily.Header" xml:space="preserve">
-    <value>字体</value>
-  </data>
   <data name="LnkVisitBlog.Content" xml:space="preserve">
     <value>访问作者博客</value>
+  </data>
+  <data name="ToggleSymbolFontsOnly.OffContent" xml:space="preserve">
+    <value>显示所有字体</value>
+  </data>
+  <data name="ToggleSymbolFontsOnly.OnContent" xml:space="preserve">
+    <value>仅显示图标字体</value>
   </data>
   <data name="TxtAboutText.Text" xml:space="preserve">
     <value>本应用可替换Windows系统自带的WIN32字符映射表。适配高DPI屏幕的设备。</value>

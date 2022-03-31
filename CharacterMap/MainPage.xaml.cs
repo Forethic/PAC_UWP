@@ -36,7 +36,10 @@ namespace CharacterMap
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            CmbFontFamily.SelectedIndex = 0;
+            if (null != CmbFontFamily.Items)
+            {
+                CmbFontFamily.SelectedIndex = 0;
+            }
         }
 
         private void SearchBoxUnicode_QuerySubmitted(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
@@ -183,6 +186,14 @@ namespace CharacterMap
         private void BtnCopyFontIcon_Click(object sender, RoutedEventArgs e)
         {
             Utils.CopyToClipBoard(TxtFontIcon.Text.Trim());
+        }
+
+        private void ToggleSymbolFontsOnly_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (null != CmbFontFamily.Items)
+            {
+                CmbFontFamily.SelectedIndex = 0;
+            }
         }
     }
 }
