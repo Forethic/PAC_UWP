@@ -168,9 +168,18 @@ namespace CharacterMap
             TxtFontIcon.SelectAll();
         }
 
-        private void BtnCopy_Click(object sender, RoutedEventArgs e)
+        private async void BtnCopy_Click(object sender, RoutedEventArgs e)
         {
             Utils.CopyToClipBoard(TxtSelected.Text);
+            BorderFadeInStoryboard.Completed += async (o, _) =>
+            {
+                await Task.Delay(1000);
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    BorderFadeOutStoryboard.Begin();
+                });
+            };
+            BorderFadeInStoryboard.Begin();
         }
 
         private void BtnAbout_Click(object sender, RoutedEventArgs e)
@@ -178,14 +187,32 @@ namespace CharacterMap
             Frame.Navigate(typeof(AboutPage));
         }
 
-        private void BtnCopyXamlCode_Click(object sender, RoutedEventArgs e)
+        private async void BtnCopyXamlCode_Click(object sender, RoutedEventArgs e)
         {
             Utils.CopyToClipBoard(TxtXamlCode.Text.Trim());
+            BorderFadeInStoryboard.Completed += async (o, _) =>
+            {
+                await Task.Delay(1000);
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    BorderFadeOutStoryboard.Begin();
+                });
+            };
+            BorderFadeInStoryboard.Begin();
         }
 
-        private void BtnCopyFontIcon_Click(object sender, RoutedEventArgs e)
+        private async void BtnCopyFontIcon_Click(object sender, RoutedEventArgs e)
         {
             Utils.CopyToClipBoard(TxtFontIcon.Text.Trim());
+            BorderFadeInStoryboard.Completed += async (o, _) =>
+            {
+                await Task.Delay(1000);
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    BorderFadeOutStoryboard.Begin();
+                });
+            };
+            BorderFadeInStoryboard.Begin();
         }
 
         private void ToggleSymbolFontsOnly_Toggled(object sender, RoutedEventArgs e)
@@ -194,6 +221,11 @@ namespace CharacterMap
             {
                 CmbFontFamily.SelectedIndex = 0;
             }
+        }
+
+        private void BtnClearCopy_Click(object sender, RoutedEventArgs e)
+        {
+            TxtSelected.Text = String.Empty;
         }
     }
 }

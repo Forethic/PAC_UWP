@@ -24,6 +24,27 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
+        <Grid.Resources>
+            <Storyboard x:Name="BorderFadeInStoryboard">
+                <DoubleAnimation From="0" To="1" Duration="0:0:0.6"
+                                 Storyboard.TargetProperty="Opacity"
+                                 Storyboard.TargetName="BorderCopiedMessage"/>
+            </Storyboard>
+            <Storyboard x:Name="BorderFadeOutStoryboard">
+                <DoubleAnimation From="1" To="0" Duration="0:0:0.6"
+                                 Storyboard.TargetProperty="Opacity"
+                                 Storyboard.TargetName="BorderCopiedMessage"/>
+            </Storyboard>
+        </Grid.Resources>
+
+        <Border x:Name="BorderCopiedMessage" Grid.Row="0"
+                Grid.RowSpan="4"
+                Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+                Opacity="0" Margin="10 10 10 50" Padding="16 7"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock x:Name="TxtCopiedMessage" x:Uid="TxtCopiedMessage" Foreground="White"/>
+        </Border>
+
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <ComboBox x:Name="CmbFontFamily" x:Uid="CmbFontFamily" Width="300"
                       ItemsSource="{Binding FontList}" VerticalAlignment="Bottom"
@@ -128,13 +149,18 @@
                     BorderThickness="{ThemeResource TextControlBorderThemeThickness}">
                 <TextBlock x:Name="TxtSelected" FontFamily="{Binding ElementName=CmbFontFamily,Path=SelectedValue}" FontSize="28" />
             </Border>
-            <Button Grid.Column="1" VerticalAlignment="Top" x:Uid="BtnCopy"
-                    Height="55" Padding="20 0" Margin="10 0 0 0"
-                    Click="BtnCopy_Click">
-                <Button.Content>
-                    <SymbolIcon Symbol="Copy"/>
-                </Button.Content>
-            </Button>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button VerticalAlignment="Top" Height="55" Padding="20 0" Margin="10 0 0 0" Click="BtnCopy_Click">
+                    <Button.Content>
+                        <SymbolIcon Symbol="Copy"/>
+                    </Button.Content>
+                </Button>
+                <Button VerticalAlignment="Top" Height="55" Padding="20 0" Margin="10 0 0 0" Click="BtnClearCopy_Click">
+                    <Button.Content>
+                        <SymbolIcon Symbol="Delete"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
         </Grid>
 
         <Grid Grid.Row="3" Margin="0 5 0 0">

@@ -141,6 +141,9 @@
   <data name="TxtAboutTitle.Text" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="TxtCopiedMessage.Text" xml:space="preserve">
+    <value>Copied</value>
+  </data>
   <data name="TxtFontIcon.Header" xml:space="preserve">
     <value>FontIcon</value>
   </data>

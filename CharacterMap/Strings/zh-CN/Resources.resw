@@ -141,6 +141,9 @@
   <data name="TxtAboutTitle.Text" xml:space="preserve">
     <value>关于</value>
   </data>
+  <data name="TxtCopiedMessage.Text" xml:space="preserve">
+    <value>已复制</value>
+  </data>
   <data name="TxtFontIcon.Header" xml:space="preserve">
     <value>字体图标</value>
   </data>
