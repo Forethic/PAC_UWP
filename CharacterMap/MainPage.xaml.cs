@@ -25,13 +25,43 @@ namespace CharacterMap
     public sealed partial class MainPage
     {
         public MainViewModel MainViewModel { get; set; }
+        public AppSettings AppSettings { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
             MainViewModel = DataContext as MainViewModel;
             Loaded += MainPage_Loaded;
+            AppSettings = new AppSettings();
+            LoadTheme();
 
+        }
+
+        private void LoadTheme()
+        {
+            RequestedTheme = AppSettings.UseDarkThemeSetting ? ElementTheme.Dark : ElementTheme.Light;
+            ToggleTheme.IsOn = AppSettings.UseDarkThemeSetting;
+            if (AppSettings.UseDarkThemeSetting)
+            {
+                UI.ApplyColorToTitleBar(Color.FromArgb(255, 43, 43, 43), Colors.White, Colors.DimGray, Colors.White);
+                UI.ApplyColorToTitleButton(Color.FromArgb(255, 43, 43, 43), Colors.White, Colors.DimGray, Colors.White, Colors.DimGray, Colors.White, Colors.DimGray, Colors.White);
+                Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 43, 43, 43), Colors.DarkGray);
+            }
+            else
+            {
+                Mobile.SetWindowsMobileStatusBarColor(Color.FromArgb(255, 0, 114, 188), Colors.White);
+                UI.ApplyColorToTitleBar(
+                Color.FromArgb(255, 0, 114, 188),
+                Colors.White,
+                Colors.LightGray,
+                Colors.Gray);
+
+                UI.ApplyColorToTitleButton(
+                     Color.FromArgb(255, 0, 114, 188), Colors.White,
+                     Color.FromArgb(255, 51, 148, 208), Colors.White,
+                     Color.FromArgb(255, 0, 114, 188), Colors.White,
+                     Colors.LightGray, Colors.Gray);
+            }
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -63,24 +93,10 @@ namespace CharacterMap
 
         private void ToggleTheme_Toggled(object sender, RoutedEventArgs e)
         {
-            if (ToggleTheme != null)
+            if (null != ToggleTheme)
             {
-                RequestedTheme = ToggleTheme.IsOn ? ElementTheme.Dark : ElementTheme.Light;
-
-                if (ToggleTheme.IsOn)
-                {
-                    UI.ApplyColorToTitleBar(Color.FromArgb(255, 43, 43, 43), Colors.White, Colors.DimGray, Colors.White);
-                    UI.ApplyColorToTitleButton(Color.FromArgb(255, 43, 43, 43), Colors.White, Colors.DimGray, Colors.White, Colors.DimGray, Colors.White, Colors.DimGray, Colors.White);
-                }
-                else
-                {
-
-                    UI.ApplyColorToTitleBar(Color.FromArgb(255, 0, 114, 188), Colors.White, Colors.LightGray, Colors.White);
-                    UI.ApplyColorToTitleButton(Color.FromArgb(255, 0, 114, 188), Colors.White,
-                                               Color.FromArgb(255, 51, 148, 208), Colors.White,
-                                               Color.FromArgb(255, 0, 114, 188), Colors.White,
-                                               Colors.LightGray, Colors.White);
-                }
+                AppSettings.UseDarkThemeSetting = ToggleTheme.IsOn;
+                LoadTheme();
             }
         }
 

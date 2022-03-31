@@ -121,7 +121,7 @@
     <value> 字符映射表</value>
   </data>
   <data name="BtnSavePng.Content" xml:space="preserve">
-    <value>保存PNG(900x900)</value>
+    <value>保存PNG</value>
   </data>
   <data name="BtnSelect.Content" xml:space="preserve">
     <value>选择</value>
@@ -134,6 +134,12 @@
   </data>
   <data name="ToggleSymbolFontsOnly.OnContent" xml:space="preserve">
     <value>仅显示图标字体</value>
+  </data>
+  <data name="ToggleTheme.OffContent" xml:space="preserve">
+    <value>浅色主题</value>
+  </data>
+  <data name="ToggleTheme.OnContent" xml:space="preserve">
+    <value>深色主题</value>
   </data>
   <data name="TxtAboutText.Text" xml:space="preserve">
     <value>本应用可替换Windows系统自带的WIN32字符映射表。适配高DPI屏幕的设备。</value>
