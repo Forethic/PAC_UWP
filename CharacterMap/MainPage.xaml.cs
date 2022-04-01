@@ -40,7 +40,7 @@ namespace CharacterMap
         private void LoadTheme()
         {
             RequestedTheme = AppSettings.UseDarkThemeSetting ? ElementTheme.Dark : ElementTheme.Light;
-            ToggleTheme.IsOn = AppSettings.UseDarkThemeSetting;
+            ToggleTheme.IsChecked = AppSettings.UseDarkThemeSetting;
             if (AppSettings.UseDarkThemeSetting)
             {
                 UI.ApplyColorToTitleBar(Color.FromArgb(255, 43, 43, 43), Colors.White, Colors.DimGray, Colors.White);
@@ -89,15 +89,6 @@ namespace CharacterMap
             hexNumber = hexNumber.Replace("x", string.Empty);
             int.TryParse(hexNumber, System.Globalization.NumberStyles.HexNumber, null, out int result);
             return result;
-        }
-
-        private void ToggleTheme_Toggled(object sender, RoutedEventArgs e)
-        {
-            if (null != ToggleTheme)
-            {
-                AppSettings.UseDarkThemeSetting = ToggleTheme.IsOn;
-                LoadTheme();
-            }
         }
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
@@ -171,7 +162,6 @@ namespace CharacterMap
             if (CharGrid?.SelectedItem is Character ch)
             {
                 TxtPreview.Text = ch.Char ?? string.Empty;
-                TxtUnicode.Text = "U+" + ch.UnicodeIndex.ToString("x").ToUpper();
             }
         }
         private void TxtXamlCode_GotFocus(object sender, RoutedEventArgs e)
@@ -242,6 +232,24 @@ namespace CharacterMap
         private void BtnClearCopy_Click(object sender, RoutedEventArgs e)
         {
             TxtSelected.Text = string.Empty;
+        }
+
+        private void ToggleTheme_Checked(object sender, RoutedEventArgs e)
+        {
+            if (null != ToggleTheme)
+            {
+                AppSettings.UseDarkThemeSetting = true;
+                LoadTheme();
+            }
+        }
+
+        private void ToggleTheme_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (null != ToggleTheme)
+            {
+                AppSettings.UseDarkThemeSetting = false;
+                LoadTheme();
+            }
         }
     }
 }

@@ -135,12 +135,6 @@
   <data name="ToggleSymbolFontsOnly.OnContent" xml:space="preserve">
     <value>Show Symbol Fonts Only</value>
   </data>
-  <data name="ToggleTheme.OffContent" xml:space="preserve">
-    <value>LightTheme</value>
-  </data>
-  <data name="ToggleTheme.OnContent" xml:space="preserve">
-    <value>Dark Theme</value>
-  </data>
   <data name="TxtAboutText.Text" xml:space="preserve">
     <value>This App is designed to replace Windows system win32 character map. It is  more DPI aware on high DPI Screens.</value>
   </data>

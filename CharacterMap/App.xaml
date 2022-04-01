@@ -9,6 +9,7 @@
         <vm:ViewModelLocator x:Key="Locator" xmlns:vm="using:CharacterMap.ViewModel" />
         <cvt:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <cvt:StringFormatConverter x:Key="StringFormatConverter"/>
+        <cvt:ZoomBackgroundConverter x:Key="ZoomBackgroundConverter"/>
 
         <Style TargetType="Grid" x:Name="TransitionalGrid">
             <Setter Property="Transitions">

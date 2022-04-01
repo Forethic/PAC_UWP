@@ -8,10 +8,21 @@ namespace CharacterMap.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
+        private ObservableCollection<AlphaKeyGroup<InstalledFont>> _groupedFontList;
         private ObservableCollection<InstalledFont> _fontList;
         private ObservableCollection<Character> _chars;
         private InstalledFont _selectedFont;
         private bool _showSymbolFontsOnly;
+
+        public ObservableCollection<AlphaKeyGroup<InstalledFont>> GroupedFontList
+        {
+            get => _groupedFontList;
+            set
+            {
+                _groupedFontList = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public ObservableCollection<InstalledFont> FontList
         {
@@ -73,6 +84,13 @@ namespace CharacterMap.ViewModel
         {
             var fontList = InstalledFont.GetFonts();
             FontList = fontList.OrderBy(f => f.Name).ToObservableCollection();
+            CreateFontListGroup();
+        }
+
+        private void CreateFontListGroup()
+        {
+            var list = AlphaKeyGroup<InstalledFont>.CreateGroups(FontList, f => f.Name.Substring(0, 1), true);
+            GroupedFontList = list.ToObservableCollection();
         }
     }
 }
