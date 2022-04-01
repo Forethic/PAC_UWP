@@ -66,9 +66,9 @@ namespace CharacterMap
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            if (null != CmbFontFamily.Items)
+            if (null != LstFontFamily.Items)
             {
-                CmbFontFamily.SelectedIndex = 0;
+                LstFontFamily.SelectedIndex = 0;
             }
         }
 
@@ -106,7 +106,7 @@ namespace CharacterMap
             {
                 TxtSelected.Text += ch.Char ?? string.Empty;
                 TxtXamlCode.Text = $"&#x{ch.UnicodeIndex.ToString("x").ToUpper()};";
-                if (CmbFontFamily.SelectedItem is InstalledFont installedFont)
+                if (LstFontFamily.SelectedItem is InstalledFont installedFont)
                 {
                     TxtFontIcon.Text = $@"<FontIcon FontFamily=""{installedFont.Name}"" Glyph=""&#x{ch.UnicodeIndex.ToString("x").ToUpper()};""/>";
                 }
@@ -171,7 +171,7 @@ namespace CharacterMap
             if (CharGrid?.SelectedItem is Character ch)
             {
                 TxtPreview.Text = ch.Char ?? string.Empty;
-                Txtunicode.Text = "U+" + ch.UnicodeIndex.ToString("x").ToUpper();
+                TxtUnicode.Text = "U+" + ch.UnicodeIndex.ToString("x").ToUpper();
             }
         }
         private void TxtXamlCode_GotFocus(object sender, RoutedEventArgs e)
@@ -233,15 +233,15 @@ namespace CharacterMap
 
         private void ToggleSymbolFontsOnly_Toggled(object sender, RoutedEventArgs e)
         {
-            if (null != CmbFontFamily.Items)
+            if (null != LstFontFamily.Items)
             {
-                CmbFontFamily.SelectedIndex = 0;
+                LstFontFamily.SelectedIndex = 0;
             }
         }
 
         private void BtnClearCopy_Click(object sender, RoutedEventArgs e)
         {
-            TxtSelected.Text = String.Empty;
+            TxtSelected.Text = string.Empty;
         }
     }
 }
