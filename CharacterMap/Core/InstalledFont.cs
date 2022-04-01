@@ -77,5 +77,9 @@ namespace CharacterMap.Core
     {
         public string Char { get; set; }
         public int UnicodeIndex { get; set; }
+
+        public string UnicodeString => "U+" + UnicodeIndex.ToString("x").ToUpper();
+
+        public string XAMLString => "&#x" + UnicodeIndex.ToString("x").ToUpper();
     }
 }
